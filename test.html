@@ -35,6 +35,7 @@
 	transition: all 300ms ease;
 	box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
 	margin: 20px 10px;
+	border-radius: 7px;
 	}
 
 	.myButton:before {
@@ -89,6 +90,17 @@
 	var countQuest = 0;
 	var plus = 0;
 	var test_start = 0;
+
+	var questions = ['Переведите "hello"','Переведите "дом"','Переведите "дерево"','Переведите "homeland"'];
+			
+	//Массивы вариантов ответов
+	var number1 = ["Как дела","House","House","Природа"];	
+	var number2 = ["Привет","Cat","Door","Родина"];	
+	var number3 = ["Пока","Dog","Wall","Остров"];	
+	var number4 = ["Дом","Tree","Tree","Планета"];	
+	
+	//Массив правильных ответов
+	var answer = [1,0,3,1];
 	
 	function check(num){
 	
@@ -100,41 +112,16 @@
 			document.getElementById('end').style.width='120px';
 
 			if(test_start == 0){
-			
-					//Массив вопросов
-				var questions = ["Hello","Дом","Дерево","Homeland"];
-
-					//Массив ответов
-				var number1 = ["Как дела","House","House"];	
-				var number2 = ["Привет","Cat","Door"];	
-				var number3 = ["Пока","Dog","Wall"];	
-				var number4 = ["Дом","Tree","Tree"];
-
 				document.getElementById('question').innerHTML=questions[countQuest];
 				document.getElementById('option1').innerHTML=number1[countQuest];
 				document.getElementById('option2').innerHTML=number2[countQuest];
 				document.getElementById('option3').innerHTML=number3[countQuest];
 				document.getElementById('option4').innerHTML=number4[countQuest];
 				
-					//Массив правильных ответов
-				var answer = [1,0,3,1];
-				
 				test_start = 1;	
 			}
 		}
 		else{
-					//Массив вопросов
-			var questions = ["Переведите hello","Переведите дом","Переведите дерево","Переведите homeland"];
-			
-				//Массивы вариантов ответов
-			var number1 = ["Как дела","House","House","Природа"];	
-			var number2 = ["Привет","Cat","Door","Родина"];	
-			var number3 = ["Пока","Dog","Wall","Остров"];	
-			var number4 = ["Дом","Tree","Tree","Планета"];	
-			
-				//Массив правильных ответов
-			var answer = [1,0,3,1];
-			
 			if(num == answer[countQuest]) plus++;
 			
 			if(questions.length - 1> countQuest){
@@ -147,8 +134,8 @@
 				document.getElementById('option2').innerHTML=number2[countQuest];
 				document.getElementById('option3').innerHTML=number3[countQuest];
 				document.getElementById('option4').innerHTML=number4[countQuest];
-
 			}
+
 			else{ 
 			
 				document.getElementById('area').style.display='none';
@@ -175,7 +162,7 @@
 
 			<center>			
 			
-				<p style="font-size: 38px;font-weight: bold;padding-top: 2px;color: #4A4A4A;" id="question"></p>
+				<p style="font-size: 38px; font-weight: bold; padding-top: 2px; color: #4A4A4A; "id="question"></p>
 				
 				<a onclick="check(0)" class="myButton" id="option1"></a>
 				
